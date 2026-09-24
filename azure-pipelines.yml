@@ -1,0 +1,31 @@
+trigger: none
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.12'
+  displayName: 'Setup Python'
+
+- script: |
+    python -m pip install -r requirements.txt
+  displayName: 'Install Requirements'
+
+- script: |
+    pytest --junitxml=reports/results.xml --html=reports/report.html --self-contained-html
+  displayName: 'Run API Tests'
+
+- task: PublishTestResults@2
+  condition: always()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'reports/results.xml'
+    testRunTitle: 'ELX API Tests'
+
+- task: PublishPipelineArtifact@1
+  condition: always()
+  inputs:
+    targetPath: 'reports'
+    artifact: 'API-Test-Reports'
