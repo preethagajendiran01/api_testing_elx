@@ -84,6 +84,9 @@ pytest -m p2
 ## Azure DevOps Integration
  
 The framework is also integrated with Azure DevOps Pipelines for CI test execution.
+
+Repo - https://dev.azure.com/preethagajendiran01/_git/Elxproject
+Pipeline - https://dev.azure.com/preethagajendiran01/Elxproject/_build?definitionId=3
  
 For Azure DevOps runs, the `.env` file is not uploaded to the repository.
  
