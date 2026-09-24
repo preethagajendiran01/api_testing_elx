@@ -1,5 +1,5 @@
 # API Framework ELX
- 
+
 This is a  API automation framework for testing the JSONPlaceholder `/posts` APIs using Python, Pytest, Requests, and Pydantic.
  
 ## Structure
